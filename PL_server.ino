@@ -21,6 +21,7 @@ void setup() {
   /*Initiate the LEDS*/
   led_man.init_led();
   led_man.all_off();
+  led_man.app_state(APP_OK);
 #endif
   pinMode(4,OUTPUT);
   digitalWrite(4,HIGH); //deselect the lora

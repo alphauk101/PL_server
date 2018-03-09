@@ -71,6 +71,7 @@ bool* pl_ethernet::net_init() {
 /*This needs to be called from main regularly*/
 void pl_ethernet::check_net()
 {
+  led_man.network_state(NETWORK_BUSY);
   net_status.DHCP_state = Ethernet.maintain();/*Wont do anything at this point but useful to update*/
   check_dhcpstate();
 }
@@ -83,12 +84,15 @@ void pl_ethernet::check_dhcpstate()
     case RENEW_SUCCESS:
     case REBIND_SUCCESS:
       /*These are all good states*/
+      led_man.network_state(NETWORK_OK);
       break;
     case RENEW_FAILED:
       debug("RENEW FAILED");
+      led_man.network_state(NETWORK_FAIL);
       break;
     case REBIND_FAIL:
       debug("REBIND FAILED");
+      led_man.network_state(NETWORK_FAIL);
       break;
     default:
       break;

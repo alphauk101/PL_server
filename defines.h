@@ -24,4 +24,8 @@
 #define NETWORK_OK        1
 #define NETWORK_FAIL      2
 
+#define APP_OK            0
+#define APP_ERROR         1
+
+#define LED_FULL          125
 #endif
