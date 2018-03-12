@@ -29,7 +29,7 @@ bool* pl_ethernet::net_init() {
 
     net_status.DHCP_state = Ethernet.maintain();/*Wont do anything at this point but useful to update*/
     net_status.ip_address = Ethernet.localIP();/*Capture the IP address*/
-
+    
 #ifdef DEBUG_ENABLED
     Serial.print("IP: ");
     Serial.print(net_status.ip_address[0]);
@@ -56,9 +56,11 @@ bool* pl_ethernet::net_init() {
       led_man.network_state(NETWORK_OK);
       debug("Ethernet setup and network connectivity OK");
     } else {
+      net_status.HW_status = false;
       debug("Connection to logon server failed.");
     }
   } else {
+    
     debug("Failed to init ethernet hardware");
     /*We cannot connect to the network */
     net_status.HW_status = false;
@@ -85,14 +87,17 @@ void pl_ethernet::check_dhcpstate()
     case REBIND_SUCCESS:
       /*These are all good states*/
       led_man.network_state(NETWORK_OK);
+      net_status.HW_status = true;
       break;
     case RENEW_FAILED:
       debug("RENEW FAILED");
       led_man.network_state(NETWORK_FAIL);
+      net_status.HW_status = false;
       break;
     case REBIND_FAIL:
       debug("REBIND FAILED");
       led_man.network_state(NETWORK_FAIL);
+      net_status.HW_status = false;
       break;
     default:
       break;

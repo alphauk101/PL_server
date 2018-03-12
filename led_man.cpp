@@ -8,13 +8,13 @@ void pl_led_man::init_led()
 {
   pixels.begin(); // This initializes the NeoPixel library.
 
-  all_colour(pixels.Color(255, 0, 0));
+  all_colour(LED_RED);
   delay(250);
-  all_colour(pixels.Color(0, 255, 0));
+  all_colour(LED_GREEN);
   delay(250);
-  all_colour(pixels.Color(0, 0, 255));
+  all_colour(LED_BLUE);
   delay(250);
-  all_colour(pixels.Color(255, 255, 255));
+  all_colour(LED_WHITE);
   delay(500);
   pixels.clear();
 
@@ -41,10 +41,10 @@ void pl_led_man::app_state(int state)
   switch (state)
   {
     case APP_OK:
-      led_data.app_colour = pixels.Color(0, 0, LED_FULL);
+      led_data.app_colour = LED_BLUE;
       break;
     case APP_ERROR:
-      led_data.app_colour = pixels.Color(LED_FULL, 0, 0);
+      led_data.app_colour = LED_RED;
       break;
     default:
       break;
@@ -54,6 +54,20 @@ void pl_led_man::app_state(int state)
 
 void pl_led_man::lora_state(int state)
 {
+  switch (state)
+  {
+    case LORA_OK:
+      led_data.lora_colour = LED_GREEN;
+      break;
+    case LORA_BUSY:
+      led_data.lora_colour = LED_AMBER;
+      break;
+    case LORA_FAIL:
+      led_data.lora_colour = LED_RED;
+      break;
+    default:
+      break;
+  }
   show_pix();
 }
 
@@ -61,14 +75,13 @@ void pl_led_man::network_state(int state)
 {
   switch (state) {
     case NETWORK_BUSY:
-      led_data.net_colour = pixels.Color(LED_FULL, LED_FULL, 0);
+      led_data.net_colour = LED_AMBER;
       break;
     case NETWORK_OK:
-      //pixels.setPixelColor(NW_LED, pixels.Color(0, LED_FULL, 0));
-      led_data.net_colour = pixels.Color(0, LED_FULL, 0);
+      led_data.net_colour = LED_GREEN;
       break;
     case NETWORK_FAIL:
-      led_data.net_colour = pixels.Color(LED_FULL, 0, 0);
+      led_data.net_colour = LED_RED;
       break;
     default:
       break;
