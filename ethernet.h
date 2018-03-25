@@ -17,7 +17,7 @@ typedef struct{
 
   IPAddress   ip_address;/*Our ip addres*/
 
-  uint8_t     connect_req_state;/*last state of the connection request*/
+  int         connect_req_state;/*last state of the connection request*/
 }NET_STATUS;
 
 

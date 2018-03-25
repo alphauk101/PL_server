@@ -2,8 +2,6 @@
 #define __LED_MAN__
 #include <stdint.h>
 #include "defines.h"
-#define LED_PIN           3
-#define PIXELS            3
 
 #define NW_LED            0
 #define APP_LED           1

@@ -8,12 +8,14 @@
 #define HTTP_REQ_LOGIN  "GET /dev/lora/test.php HTTP/1.1"
 
 /*Lora module pins*/
-#define RFM95_CS_PIN        10/*Chip select*/
-#define RFM95_RST_PIN       9/*Reset*/
+#define RFM95_CS_PIN        3/*Chip select*/
+#define RFM95_RST_PIN       1/*Reset*/
 #define RFM95_INT_PIN       2/*Interrupt GPIO0*/
 /*Lora defines*/
 #define RF95_FREQ           868.0
 #define POWER_LEVEL         23
+
+
 
 /*Network states*/
 #define NONE               0
@@ -42,7 +44,9 @@
 #define LORA_FAIL         2
 
 /*LED defines*/
-#define LED_FULL          125/*Brightness ie. the brightess we ever go full bright is abit over whelming*/
+#define LED_PIN           A5
+#define PIXELS            3
+#define LED_FULL          75/*Brightness ie. the brightess we ever go full bright is abit over whelming*/
 #define LED_RED           pixels.Color(LED_FULL, 0, 0)
 #define LED_GREEN         pixels.Color(0, LED_FULL, 0)
 #define LED_BLUE          pixels.Color(0, 0, LED_FULL)

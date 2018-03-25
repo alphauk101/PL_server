@@ -3,13 +3,13 @@
 #include "ethernet.h"
 #include "defines.h"
 #include "led_man.h"
-#include "lora.h"
+//#include "lora.h"
 /*The ethernet controller class*/
 pl_ethernet net_man;
 /*led_manager*/
 pl_led_man led_man;
 /*Lora manager*/
-pl_lora_man lora_man;
+//pl_lora_man lora_man;
 
 typedef struct{
   bool*   lora_state;
@@ -38,7 +38,7 @@ void setup() {
   peri_states.net_state = net_man.net_init();
 
   /*init lora*/
-  peri_states.lora_state = lora_man.lora_init();
+  //peri_states.lora_state = lora_man.lora_init();
 }
 
 
@@ -47,7 +47,7 @@ void loop() {
 
 
   //This is our worker function for the ethernet must be called regularly
-  net_man.check_net();
+  //net_man.check_net();
   delay(250);
 }
 

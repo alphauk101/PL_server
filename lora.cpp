@@ -18,7 +18,7 @@ bool* pl_lora_man::lora_init()
 
   if (rf95.init()) {
     if (rf95.setFrequency(RF95_FREQ)) {
-      rf95.setTxPower(POWER_LEVEL, false);
+      //rf95.setTxPower(POWER_LEVEL, false);
       led_man.lora_state(LORA_OK);
       OPERATIONAL = true;
     } else {

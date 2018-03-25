@@ -13,6 +13,6 @@ class pl_lora_man {
     void module_reset(void);
     void wait_for_packet(void);
     
-    volatile bool OPERATIONAL;/*if set to true the app can assume that the lora is working ok*/
+    bool OPERATIONAL;/*if set to true the app can assume that the lora is working ok*/
 };
 #endif
