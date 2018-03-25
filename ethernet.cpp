@@ -92,6 +92,7 @@ void pl_ethernet::check_dhcpstate()
     case REBIND_SUCCESS:
       /*These are all good states*/
 <<<<<<< HEAD
+<<<<<<< HEAD
       led_man.network_state(NETWORK_OK);
       net_status.HW_status = true;
       break;
@@ -104,6 +105,14 @@ void pl_ethernet::check_dhcpstate()
       debug("REBIND FAILED");
       led_man.network_state(NETWORK_FAIL);
       net_status.HW_status = false;
+=======
+      break;
+    case RENEW_FAILED:
+      debug("RENEW FAILED");
+      break;
+    case REBIND_FAIL:
+      debug("REBIND FAILED");
+>>>>>>> parent of 8491489... updates
 =======
       break;
     case RENEW_FAILED:

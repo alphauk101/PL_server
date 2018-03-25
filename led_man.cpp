@@ -34,6 +34,7 @@ void pl_led_man::all_colour(uint32_t colour)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void pl_led_man::app_state(int state)
 {
 
@@ -72,10 +73,13 @@ void pl_led_man::lora_state(int state)
 
 =======
 >>>>>>> parent of 8491489... updates
+=======
+>>>>>>> parent of 8491489... updates
 void pl_led_man::network_state(int state)
 {
   switch (state) {
     case NETWORK_BUSY:
+<<<<<<< HEAD
 <<<<<<< HEAD
       led_data.net_colour = LED_AMBER;
       break;
@@ -84,6 +88,15 @@ void pl_led_man::network_state(int state)
       break;
     case NETWORK_FAIL:
       led_data.net_colour = LED_RED;
+=======
+      pixels.setPixelColor(NW_LED, pixels.Color(255, 255, 0));
+      break;
+    case NETWORK_OK:
+      pixels.setPixelColor(NW_LED, pixels.Color(0, 255, 0));
+      break;
+    case NETWORK_FAIL:
+      pixels.setPixelColor(NW_LED, pixels.Color(255, 0, 0));
+>>>>>>> parent of 8491489... updates
 =======
       pixels.setPixelColor(NW_LED, pixels.Color(255, 255, 0));
       break;
