@@ -29,6 +29,7 @@ void setup() {
   /*Initiate the LEDS*/
   led_man.init_led();
   led_man.all_off();
+<<<<<<< HEAD
   led_man.app_state(APP_OK);
 
   pinMode(RFM95_CS_PIN,OUTPUT);
@@ -39,6 +40,12 @@ void setup() {
 
   /*init lora*/
   //peri_states.lora_state = lora_man.lora_init();
+=======
+#endif
+  pinMode(4,OUTPUT);
+  digitalWrite(4,HIGH); //deselect the lora
+  ethernet.net_init();
+>>>>>>> parent of 8491489... updates
 }
 
 

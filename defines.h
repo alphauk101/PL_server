@@ -36,6 +36,7 @@
 #define NETWORK_OK        1
 #define NETWORK_FAIL      2
 
+<<<<<<< HEAD
 #define APP_OK            0
 #define APP_ERROR         1
 
@@ -53,4 +54,6 @@
 #define LED_AMBER         pixels.Color(LED_FULL, LED_FULL, 0)
 #define LED_WHITE         pixels.Color(LED_FULL, LED_FULL, LED_FULL)
 
+=======
+>>>>>>> parent of 8491489... updates
 #endif

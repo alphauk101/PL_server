@@ -17,8 +17,6 @@ void pl_led_man::init_led()
   all_colour(LED_WHITE);
   delay(500);
   pixels.clear();
-
-  memset(&led_data, 0, sizeof(LED_DATA));
 }
 
 void pl_led_man::all_off()
@@ -35,6 +33,7 @@ void pl_led_man::all_colour(uint32_t colour)
   pixels.show();
 }
 
+<<<<<<< HEAD
 void pl_led_man::app_state(int state)
 {
 
@@ -71,10 +70,13 @@ void pl_led_man::lora_state(int state)
   show_pix();
 }
 
+=======
+>>>>>>> parent of 8491489... updates
 void pl_led_man::network_state(int state)
 {
   switch (state) {
     case NETWORK_BUSY:
+<<<<<<< HEAD
       led_data.net_colour = LED_AMBER;
       break;
     case NETWORK_OK:
@@ -82,18 +84,19 @@ void pl_led_man::network_state(int state)
       break;
     case NETWORK_FAIL:
       led_data.net_colour = LED_RED;
+=======
+      pixels.setPixelColor(NW_LED, pixels.Color(255, 255, 0));
+      break;
+    case NETWORK_OK:
+      pixels.setPixelColor(NW_LED, pixels.Color(0, 255, 0));
+      break;
+    case NETWORK_FAIL:
+      pixels.setPixelColor(NW_LED, pixels.Color(255, 0, 0));
+>>>>>>> parent of 8491489... updates
       break;
     default:
       break;
   }
-  show_pix();
-}
-
-void pl_led_man::show_pix()
-{
-  pixels.setPixelColor(NW_LED, led_data.net_colour);
-  pixels.setPixelColor(APP_LED, led_data.app_colour);
-  pixels.setPixelColor(LORA_LED, led_data.lora_colour);
   pixels.show();
 }
 
